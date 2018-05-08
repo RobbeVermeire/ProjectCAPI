@@ -1,0 +1,13 @@
+<h1>Angular 5 HttpClient Demo App</h1>
+  <h2>Photo ids</h2>
+
+    <select placeholder="Kies een Rover">
+        <option *ngFor="let rover of Rovers" value="rover" [(ngModel)]="SelectedRover">
+            {{rover}}
+        </option>
+    </select> 
+        <button type="submit" class="btn btn-success" onclick="GetPhotos" >Submit</button>
+
+<div *ngFor="let photo of photos">
+    <img src={{photo.img_src}}>
+</div>
