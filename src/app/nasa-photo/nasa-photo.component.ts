@@ -8,10 +8,15 @@ import { interfaces } from '../services/nasarovers.service'
   styleUrls: ['./nasa-photo.component.css']
 })
 export class NasaPhotoComponent implements OnInit {
+  show: boolean;
 
 
   Rovers = ['Curiosity','Opportunity','Spirit']
   SelectedRover: string = this.Rovers[0];
+
+  testMethod(event): void{
+    console.log(this.SelectedRover);
+  }
   
   getPhotos(): any {
     this._svcNasaRover.getLatestPhotos(this.SelectedRover).subscribe(
@@ -20,6 +25,8 @@ export class NasaPhotoComponent implements OnInit {
       err => console.log(err),
       () => console.log('Photos have been loaded') 
     )
+    this.show = true;
+    
   }
   photos:interfaces.Latestphoto[];
 
