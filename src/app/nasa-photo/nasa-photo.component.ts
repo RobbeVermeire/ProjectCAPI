@@ -18,7 +18,7 @@ export class NasaPhotoComponent implements OnInit {
     console.log(this.SelectedRover);
   }
   
-  getPhotos(): any {
+  getLatestPhotos(): any {
     this._svcNasaRover.getLatestPhotos(this.SelectedRover).subscribe(
       data => {this.photos = data.latest_photos;
                 console.log(this.photos)},
@@ -35,7 +35,6 @@ export class NasaPhotoComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getPhotos();
   }
 
 

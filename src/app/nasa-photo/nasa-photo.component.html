@@ -1,3 +1,4 @@
+
 <h1>Angular 5 HttpClient Demo App</h1>
 
 <select placeholder="Kies een Rover" [(ngModel)]="SelectedRover">
@@ -5,7 +6,7 @@
     {{rover}}
   </option>
 </select>
-<button class="btn btn-success" (click)="getPhotos()">Submit</button>
+<button class="btn btn-success" (click)="getLatestPhotos()">Submit</button>
 
 <ng-container *ngIf="show">
   <div *ngFor="let photo of photos">
