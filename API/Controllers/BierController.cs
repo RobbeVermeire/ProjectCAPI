@@ -30,7 +30,7 @@ public class BierController : Controller
     public IActionResult UpdateBier([FromBody] Bier updateBier)
     {
         var orgBier = context.Bieren.Find(updateBier.Id);
-        if(bier == null)
+        if(orgBier == null)
             return NotFound();
         orgBier.Naam = updateBier.Naam;
         orgBier.EBC = updateBier.EBC;
