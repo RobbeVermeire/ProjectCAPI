@@ -12540,11 +12540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Gener\\Desktop\\Mappen\\School\\2de jaar (2017-2018)\\Cloud APIs\\aspcore_lesproject_na_deel1\\lesproject.csproj",
+      "projectUniqueName": "C:\\Users\\Gener\\Desktop\\Mappen\\School\\2de jaar (2017-2018)\\Cloud APIs\\ProjectAPIS\\API\\lesproject.csproj",
       "projectName": "lesproject",
-      "projectPath": "c:\\Users\\Gener\\Desktop\\Mappen\\School\\2de jaar (2017-2018)\\Cloud APIs\\aspcore_lesproject_na_deel1\\lesproject.csproj",
+      "projectPath": "C:\\Users\\Gener\\Desktop\\Mappen\\School\\2de jaar (2017-2018)\\Cloud APIs\\ProjectAPIS\\API\\lesproject.csproj",
       "packagesPath": "C:\\Users\\Gener\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Gener\\Desktop\\Mappen\\School\\2de jaar (2017-2018)\\Cloud APIs\\aspcore_lesproject_na_deel1\\obj\\",
+      "outputPath": "C:\\Users\\Gener\\Desktop\\Mappen\\School\\2de jaar (2017-2018)\\Cloud APIs\\ProjectAPIS\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
