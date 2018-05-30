@@ -11,17 +11,16 @@ export class NasaRoversService {
         console.log("NasaRover-HTTPCLIENT Aangemaakt");
     }
 
-    private apiUrl='https://api.nasa.gov/mars-photos';
-    private LatestPhotoURL(_rover: string){
-      return '/api/v1/rovers/'+_rover+'/latest_photos';
-    }
+    private apiUrl='https://api.nasa.gov/mars-photos/api/v1/rovers/';
+
     private apiKey='api_key=7uT9c1V3KKCMNRDJUyGk1GMIslFK8v3REUnRBNOE';
-    
 
     getLatestPhotos(rover: string): Observable<interfaces.RootObject>{
-      console.log(this.apiUrl+this.LatestPhotoURL(rover)+"?"+this.apiKey);
-        return this._httpClient.get<interfaces.RootObject>(this.apiUrl+this.LatestPhotoURL(rover)+"?"+this.apiKey);
+        return this._httpClient.get<interfaces.RootObject>(this.apiUrl+rover+"/latest_photos?"+this.apiKey);
         
+    }
+    getDatePhotos(rover: string, camera: string, sol: number): Observable<interfaces.RootObject>{
+      return this._httpClient.get<interfaces.RootObject>(this.apiUrl+rover+'/photos?'+"sol="+sol+'&'+'camera='+camera+'&'+this.apiKey);
     }
 }
 

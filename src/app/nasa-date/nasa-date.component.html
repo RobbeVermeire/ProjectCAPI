@@ -1,0 +1,34 @@
+<button (click)="changePage()"> Klik hier voor andere pagina! </button>
+<div class="container">
+  <h1>Verfijn uw keuze!</h1>
+  <form>
+    <div class="form-group">
+      <label for="sol">Sol</label>
+      <input type="text" class="form-control" id="sol" [(ngModel)]="Sol" name="sol" required>
+    </div>
+
+    <div class="form-group">
+      <select placeholder="Kies een Rover" [(ngModel)]="SelectedRover" name="rover">
+        <option *ngFor="let rover of Rovers" >
+          {{rover}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select placeholder="Kies een Camera" [(ngModel)]="SelectedCamera" name="camera">
+        <option *ngFor="let camera of Cameras">
+          {{camera}}
+        </option>
+      </select>
+    </div>
+
+    <button (click)="getDatePhotos()"type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<ng-container *ngIf="show">
+  <div *ngFor="let photo of photos">
+    <img src={{photo.img_src}}>
+  </div>
+</ng-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NasaRoversService } from '../services/nasarovers.service';
 import { interfaces } from '../services/nasarovers.service'
+import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nasa-photo',
@@ -8,29 +9,29 @@ import { interfaces } from '../services/nasarovers.service'
   styleUrls: ['./nasa-photo.component.css']
 })
 export class NasaPhotoComponent implements OnInit {
+
+  photos:interfaces.Photo[];
   show: boolean;
-
-
   Rovers = ['Curiosity','Opportunity','Spirit']
   SelectedRover: string = this.Rovers[0];
-
-  testMethod(event): void{
-    console.log(this.SelectedRover);
-  }
+  
   
   getLatestPhotos(): any {
     this._svcNasaRover.getLatestPhotos(this.SelectedRover).subscribe(
-      data => {this.photos = data.latest_photos;
+      data => {this.photos = data.photos;
                 console.log(this.photos)},
       err => console.log(err),
-      () => console.log('Photos have been loaded') 
+      () => console.log(this.photos) 
     )
     this.show = true;
-    
   }
-  photos:interfaces.Latestphoto[];
+  changePage():any{
+    this.router.navigateByUrl('/marsphotos')
+  }
+  
 
-  constructor(private _svcNasaRover : NasaRoversService) {
+
+  constructor(private _svcNasaRover : NasaRoversService, private router: Router) {
 
    }
 

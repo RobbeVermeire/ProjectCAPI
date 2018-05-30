@@ -1,5 +1,6 @@
 
 <h1>Angular 5 HttpClient Demo App</h1>
+<button (click)="changePage()"> Klik hier voor andere pagina! </button>
 
 <select placeholder="Kies een Rover" [(ngModel)]="SelectedRover">
   <option *ngFor="let rover of Rovers" >

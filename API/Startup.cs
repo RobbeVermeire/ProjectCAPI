@@ -30,6 +30,7 @@ namespace lesproject
                     Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -41,6 +42,8 @@ namespace lesproject
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors( builder => 
+            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseMvc();
             DBInitializer.Initialize(bierContext);
