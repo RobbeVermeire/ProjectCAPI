@@ -11,26 +11,50 @@ export class NasaRoversService {
         console.log("NasaRover-HTTPCLIENT Aangemaakt");
     }
 
-    private apiUrl='https://api.nasa.gov/mars-photos/api/v1/rovers/';
+    private apiUrl='https://api.nasa.gov/mars-photos/api/v1';
 
     private apiKey='api_key=7uT9c1V3KKCMNRDJUyGk1GMIslFK8v3REUnRBNOE';
 
-    getLatestPhotos(rover: string): Observable<interfaces.RootObject>{
-        return this._httpClient.get<interfaces.RootObject>(this.apiUrl+rover+"/latest_photos?"+this.apiKey);
+    getLatestPhotos(rover: string): Observable<interfaces.photos>{
+        return this._httpClient.get<interfaces.photos>(this.apiUrl+'/rovers/'+rover+"/latest_photos?"+this.apiKey);
         
     }
-    getDatePhotos(rover: string, camera: string, sol: number): Observable<interfaces.RootObject>{
-      return this._httpClient.get<interfaces.RootObject>(this.apiUrl+rover+'/photos?'+"sol="+sol+'&'+'camera='+camera+'&'+this.apiKey);
+    getDatePhotos(rover: string, camera: string, sol: number): Observable<interfaces.photos>{
+      return this._httpClient.get<interfaces.photos>(this.apiUrl+'/rovers/'+rover+'/photos?'+"sol="+sol+'&'+'camera='+camera+'&'+this.apiKey);
     }
+    getRoverInfo(rover: string):Observable<interfaces.Manifest>{
+      return this._httpClient.get<interfaces.Manifest>(this.apiUrl+'/manifest/'+rover+'?'+this.apiKey)
+    }
+
 }
 
 
 export  namespace interfaces{
-    export interface RootObject {
-        latest_photos: Latestphoto[];
+  export interface Manifest {
+    photo_manifest: Photomanifest;
+  }
+  
+  export interface Photomanifest {
+    name: string;
+    landing_date: string;
+    launch_date: string;
+    status: string;
+    max_sol: number;
+    max_date: string;
+    total_photos: number;
+    photos: Photo[];
+  }
+  
+  export interface Photo {
+    sol: number;
+    total_photos: number;
+    cameras: string[];
+  }
+  export interface photos {
+        photos: Photo[];
       }
       
-      export interface Latestphoto {
+      export interface Photo {
         id: number;
         sol: number;
         camera: Camera;

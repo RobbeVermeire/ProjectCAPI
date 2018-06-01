@@ -10,19 +10,22 @@ import { NasaPhotoComponent } from './nasa-photo/nasa-photo.component';
 
 import { NasaRoversService } from './services/nasarovers.service';
 import { NasaDateComponent } from './nasa-date/nasa-date.component';
+import { NasaRoverinfoComponent } from './nasa-roverinfo/nasa-roverinfo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NasaPhotoComponent,
-    NasaDateComponent
+    NasaDateComponent,
+    NasaRoverinfoComponent
   ],
   imports: [
     RouterModule.forRoot(
       [
         {path: 'marsphotos', component:NasaDateComponent},
-        {path: 'latestphotos', component:NasaPhotoComponent}
+        {path: 'latestphotos', component:NasaPhotoComponent},
+        {path: 'roverinfo', component:NasaRoverinfoComponent}
       ]
     ),
     BrowserModule,
