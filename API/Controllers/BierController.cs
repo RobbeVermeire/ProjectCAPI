@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
-[Route("api/v1/bier")]
+[Route("api/v1/bieren")]
 public class BierController : Controller
 {
     private readonly BierContext context;
@@ -14,10 +14,10 @@ public class BierController : Controller
     }
 
     [HttpGet]
-    public List<Bier> GetAllBieren(string Naam, string Brouwerij, string Kleur, double AlcoholGehalte, double EBU, string sort, int? page,int length=3
-        ,string dir= "asc")
+    public List<Bier> GetAllBieren(string Naam, string Brouwerij, string Kleur, double AlcoholGehalte,
+                                   double EBU, string sort, int? page,int length=3 ,string dir= "asc")
     {
-        IQueryable<Bier> query = context.Bieren;
+        IQueryable<Bier> query = context.Bieren.Include(b=>b.Brouwerij);
         if(!string.IsNullOrWhiteSpace(Naam))
             query = query.Where(d=>d.Naam == Naam);
         if(!string.IsNullOrWhiteSpace(Brouwerij))

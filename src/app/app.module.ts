@@ -14,6 +14,7 @@ import { NasaRoverinfoComponent } from './nasa-roverinfo/nasa-roverinfo.componen
 import { BierClientComponent } from './bier-client/bier-client.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { BierClientComponent } from './bier-client/bier-client.component';
       [
         {path: 'marsphotos', component:NasaDateComponent},
         {path: 'latestphotos', component:NasaPhotoComponent},
-        {path: 'roverinfo', component:NasaRoverinfoComponent}
+        {path: 'roverinfo', component:NasaRoverinfoComponent},
+        {path: 'bierapi',component:BierClientComponent}
       ]
     ),
     BrowserModule,
