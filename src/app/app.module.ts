@@ -11,6 +11,7 @@ import { NasaPhotoComponent } from './nasa-photo/nasa-photo.component';
 import { NasaRoversService } from './services/nasarovers.service';
 import { NasaDateComponent } from './nasa-date/nasa-date.component';
 import { NasaRoverinfoComponent } from './nasa-roverinfo/nasa-roverinfo.component';
+import { BierClientComponent } from './bier-client/bier-client.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NasaRoverinfoComponent } from './nasa-roverinfo/nasa-roverinfo.componen
     AppComponent,
     NasaPhotoComponent,
     NasaDateComponent,
-    NasaRoverinfoComponent
+    NasaRoverinfoComponent,
+    BierClientComponent
   ],
   imports: [
     RouterModule.forRoot(
